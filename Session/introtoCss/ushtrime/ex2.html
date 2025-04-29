@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .sidebar h1 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .sidebar p {
+            margin: 10px 0;
+        }
+        .sidebar button {
+            background-color: #34495e;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .post {
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+        }
+        .post h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+        .post .author {
+            color: #3498db;
+            font-size: 14px;
+        }
+        .tags {
+            display: inline-block;
+            padding: 3px 8px;
+            background-color: #2ecc71;
+            color: white;
+            font-size: 12px;
+            border-radius: 5px;
+            margin-right: 5px;
+        }
+        .tags.html { background-color: #3498db; }
+        .tags.javascript { background-color: #e74c3c; }
+        .post img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <h1>A SAMPLE BLOG</h1>
+        <p>Lorem Ipsum dolor</p>
+        <button>LOG IN</button>
+    </div>
+    <div class="content">
+        <div class="post">
+            <h2>A pinned post</h2>
+            <p>By <span class="author">John Doe</span> under <span class="tags css">CSS</span><span class="tags html">HTML</span></p>
+            <p>Lorem ipsum dolor sit amet, consectetur 
+            adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eligendi ipsa consequuntur, aspernatur ad, iure veniam, omnis esse saepe impedit tenetur molestias
+            Repellendus tempora ratione vitae minus molestias ad. Ipsam, repudiandae.</p>
+            <img src="download.jpeg" alt="User">
+        </div>
+        <div class="post">
+            <h2>A recent post</h2>
+            <p>By <span class="author">Rocky Balboa</span> under <span class="tags javascript">JavaScript</span></p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua Lorem ipsum dolor sit amet consectetur adipisicing elit. Optio temporibus, id officiis voluptate doloribus delectus reiciendis ut minima amet magnam quo! Sint
+             officia distinctio laboriosam ea rem exercitationem quibusdam Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam impedit in officiis fugiat ad quae quisquam illo vel,
+             neque esse consequatur corrupti repudiandae quo ea id ratione excepturi ipsa labore! consequatur?</p>
+            <img src="download.jpeg" alt="User">
+        </div>
+    </div>
+</body>
+</html>

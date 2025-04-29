@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        aside {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: bisque;
+    padding: 100px 0 10px 10px;
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    padding: 0;
+}
+.list-container{
+    display: flex;
+    flex-direction: column;
+}
+.list-name {
+    font-size: 1.5em;
+    color: blueviolet;
+    text-decoration: underline;
+}
+
+.list-items {
+    margin-left: 10px;
+    font-size: 1.1em;
+    display: flex;
+    flex-direction: column;
+}
+.list-item {
+    padding: 0.3em;
+}
+
+.list-item:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 1.;
+}
+
+.list-item::before {
+    content: "- ";
+}
+
+    </style>
+</head>
+<body>
+    </html><aside>
+        <ul class="lists-container">
+            <li class="list">
+                <span class="list-name">Books</span>
+                <ul class="list-items">
+                    <li class="list-item">Crime and Punishment</li>
+                    <li class="list-item">War and Peace</li>
+                </ul>
+            </li>
+            <li class="list">
+                <span class="list-name">Notes</span>
+                <ul class="list-items">
+                    <li class="list-item">Session 1</1li>
+                    <li class="list-item">Session 2</1li>
+                </ul>
+            </li>
+            <li class="list">
+                <span class="list-name">Settings</span>
+                <ul class="list-items">
+                    <li class="list-item">Account</li>
+                    <li class="list-item">Language</li>
+                    <li class="list-item">Preferences</li>
+                </ul>
+            </li>
+        </ul>
+    </aside>
+    </body>
+    </html>
+

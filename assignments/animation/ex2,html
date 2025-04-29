@@ -1,0 +1,166 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample Blog</title>
+   <style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background-color: #f9f9f9;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+
+.sidebar {
+    width: 250px;
+    background: #2C3E50;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    height: 100vh;
+}
+
+.sidebar h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    
+}
+
+.sidebar p {
+    color: #bdc3c7;
+    font-size: 14px;
+}
+
+.login-btn {
+    background: white;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+.content {
+    flex-grow: 1;
+    padding: 40px;
+}
+
+.post {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.pinned {
+    border-top: 4px solid #2C3E50;
+}
+
+.post-category {
+    font-size: 14px;
+    color: gray;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+}
+
+.post-title {
+    font-size: 22px;
+    margin: 0;
+}
+
+.post-meta {
+    font-size: 14px;
+    color: gray;
+    margin: 5px 0;
+}
+
+.post-meta a {
+    color: #3498db;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.tag {
+    display: inline-block;
+    padding: 3px 8px;
+    color: white;
+    border-radius: 5px;
+    font-size: 12px;
+    margin-left: 5px;
+}
+
+.css { background: green; }
+.html { background: blue; }
+.javascript { background: red; }
+
+.post-text {
+    font-size: 14px;
+    line-height: 1.5;
+    margin-top: 10px;
+}
+
+
+.author-img {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+    
+   </style>
+
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <h2>A <br>Barnatore</h2>
+            <p>Miresevini ne barnatoren toner</p>
+            <button class="login-btn">LOG IN</button>
+        </aside>
+
+       
+        <main class="content">
+          
+            <section class="post pinned">
+                <p class="post-category">Barnatorja jone </p>
+                <h2 class="post-title">barnat tona</h2>
+               
+                <p class="post-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <img class="author-img" src="160107100400-monkey-selfie.jpg" alt="Author">
+            </section>
+
+            <section class="post">
+                <p class="post-category">RECENT POSTS</p>
+                <h2 class="post-title">A recent post</h2>
+                <\
+                </p>
+                <p class="post-text">
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                </p>
+                <img class="author-img" src="20090914-monkey.jpg" alt="Author">
+            </section>
+        </main>
+    </div>
+</body>
+</html>

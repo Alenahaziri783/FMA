@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif; 
+    display: grid;
+    grid-template-columns: auto 1fr;
+}
+
+aside {
+    width: 20%;
+    background-image: url(images/sidebar-1.jpg);
+    height: 100vh;
+    padding: 1.25em;
+    position: fixed;
+    background-size: cover;
+    background-blend-mode: multiply;
+    background-color: rgba(0, 0, 0, 0.6);
+}
+
+aside ul li{
+    list-style-type: none;
+    display: flex;
+    color: white;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+    margin: 1.06em 0;
+    object-fit: cover;
+    padding: 0.625em;
+    border-radius: 0.25em;
+    transition: transform 0.2s ease;
+    box-sizing: border-box; 
+    cursor: pointer;
+}
+
+aside ul li:not(:first-child):hover {
+    background-color: rgba(119, 118, 118, 0.562);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+aside ul li .img-left{
+    display: flex;
+    align-items: center;
+    margin-left: 0.6em;
+}
+
+aside ul li .img-left img{
+    width: 1.56em;
+    margin-right: 0.7em;
+}
+
+aside ul li .img-right img{
+    width: 1em;
+}
+
+aside ul li:first-child{
+    padding-left: 0;
+}
+
+.orange {
+    background-color: orangered;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.orange .img-left {
+    margin-left: 1.4em;
+}
+
+hr{
+    border-color: #ddd;
+}
+
+.logo {
+    color: white;
+    font-size: 1.25em;
+    margin-bottom: 0.94em;
+}
+
+.logo span {
+    margin-right: 1.125em;
+}
+
+.profile {
+    margin: 0.625em 0;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+.profile p {
+    color: white;
+    margin-right: 4.4em;
+}
+
+.avatar{
+    width: 2.5em;
+    border-radius: 50%;
+    margin-right: 0.625em;
+}
+
+.profile .arrow {
+    width: 1.9em;
+}
+
+main {
+    padding: 1.25em 2.5em;
+    margin-left: 18.75em;
+    display: flex;
+    flex-direction: column;
+    gap: 3.125em;
+    overflow-y: scroll;
+    background-color: #ededed;
+}
+
+.allsections {
+    display: flex;
+    flex-direction: column;
+    gap: 1.9em;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header img {
+    width: 1.56em;
+    opacity: 0.5;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 1.25em;
+    position: relative;
+}
+
+.header-right > ul {
+    display: flex;
+    align-items: center;
+    list-style-type: none;
+    gap: 1.56em;
+}
+
+.header-right ul li:first-child{
+    display: flex;
+    gap: 1.25em;
+    align-items: center;
+}
+
+.tooltip{
+    background-color: #626368;
+    color: white;
+    padding: 4px;
+    font-size: smaller;
+    position: absolute;
+    top: 33px;
+    left: 31px;
+    visibility: hidden;
+    transition: visibility 0s, opacity 0.5s ease-in-out;
+    opacity: 0;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.circle:hover .tooltip{
+    visibility: visible;
+    opacity: 1;
+}
+
+.tool {
+    cursor: pointer;
+    position: relative;
+}
+
+.tool .tooltip {
+    position: absolute;
+    top: 25px;
+    left: 15px;
+}
+
+.tool:hover .tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.circle {
+    position: relative;
+    cursor: pointer;
+    padding: 0.625em;
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+    background-color: white;
+}
+
+.circle:hover {
+    box-shadow: rgba(0, 0, 0, 0.40) 0px 3px 20px;
+    cursor: pointer;
+    
+}
+
+#search {
+    border: none;
+    padding: 0.44em 0;
+    border-bottom: 2px solid rgb(186, 186, 186);
+    transition: 0.5s;
+    background-color: #ededed;
+}
+
+#search:focus {
+    outline: none;
+    border-bottom: 2px solid rgb(143, 4, 125);
+}
+
+header h2 {
+    font-family: sans-serif;
+    color: #626368;
+}
+
+.hamburger {
+    display: none;
+}
+
+.statistics {
+    display: grid;
+    background-color: #ededed ;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25em;
+    margin-top: 1.56em;
+}
+
+.statistics > div {
+    background-color: rgb(255, 255, 255);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 0.625em;
+    padding: 1.25em;
+}
+
+.item{
+    padding: 0.625em;
+    border-radius: 0.31em;
+    transition: 0.5s;
+    list-style-type: none;
+    margin: 0.31em;
+}
+
+.item:hover{
+    background-color: orangered;
+    color: white;
+}
+
+.dropdown{
+    position: absolute;
+    right: 1.75em;
+    top: 0.44em;
+    display: none;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    width: 18.75em;
+    z-index: 20;
+}
+.notification-icon:hover .dropdown, .dropdown:hover {
+    display: block;
+}
+
+.notify-num {
+    position: absolute;
+    background-color: red;
+    color: white;
+    padding: 0.18em 0.375em;
+    border-radius: 50%;
+    border: 1px solid white;
+    display: flex;
+    align-items: center;
+    z-index: 1000;
+    font-size: 7pt;
+    bottom: 2.0625em;
+    left: 1.335em;
+}
+
+.header-right ul li:nth-child(3){
+    position: relative;
+}
+
+.section1{
+    background-color: rgb(253, 255, 255);
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+}
+
+.global {
+    display: flex;
+    position: relative;
+}
+
+.location {
+    display: flex;
+    gap: 1.875em;
+    align-items: center;   
+}
+
+.global img {
+    width: 3.5em;
+    background-color: green;
+    padding: 0.937em;
+    position: absolute;
+    bottom: -0.37em;
+    left: 0.625em;
+    border-radius: 3px;
+}
+
+.global h2 {
+    margin: 0.5em 0 0 3.5em;
+    font-weight: lighter;
+}
+
+.country{
+    margin: 2.187em 0 0 0.937em;
+    flex: 1;
+}
+
+
+.country ul li{
+    list-style-type: none;
+    padding: 0.625em;
+    font-size: smaller;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+
+.country img {
+    width: 0.937em;
+}
+
+.country-name{
+    flex: 2;
+    text-align: left;
+}
+
+.country-number {
+    display: flex;
+    gap: 0.3125em;
+    flex: 1;
+    text-align: right;
+}
+
+.map{
+    flex: 3;
+}
+
+.map iframe {
+    width: 97%;
+    height: 12.5em;
+}
+.top{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1.25em;
+}
+
+.top img {
+    width: 3.75em;
+    padding: 0.625em;  
+}
+
+.text p, h2{
+    font-weight: lighter;
+}
+
+.sofa, .stat, .store, .earth{
+    position: relative;
+}
+
+.sofa img {
+    position: absolute;
+    bottom: 0.9375em;
+    background-color: orange;
+    border-radius: 3px;
+}
+
+.stat img{
+    position: absolute;
+    bottom: 0.9375em;
+    background-color: crimson;
+    border-radius: 0.1875em;
+}
+
+.store img{
+    position: absolute;
+    bottom: 0.9375em;
+    background-color: green;
+    border-radius: 0.1875em;
+}
+
+.earth img{
+    position: absolute;
+    bottom: 0.9375em;
+    background-color: deepskyblue;
+    border-radius: 0.1875em;
+}
+
+.bottom{
+    display: flex;
+    padding-top: 0.9375em;
+    font-size: smaller;
+    opacity: 0.5;
+    gap: 0.1875em;
+}
+
+.bottom img {
+    width: 0.9375em;
+}
+
+.wrapper {
+    display: flex;
+    gap: 3.125em;
+    justify-content: space-around;
+
+}
+
+.card{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: white;
+    margin: 3.125em 0 1.5625em 0;
+    border-radius: 8px;
+    overflow: visible;
+    width: 25em;
+    padding: 0 1em 0.5em 1em;
+    z-index: 1;
+    position: relative;
+}
+
+.hotel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2.5em;
+}
+
+.hotel h2{
+    margin-top: 1.25em; 
+    font-size: 1.25em;
+}
+
+.hotel p{
+    font-size: 0.8em;
+    color: #626368;
+    text-align: center;
+    margin-top: 1.3em;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    margin: 1em 0 0.5em 0;
+    
+}
+.place{
+    display: flex;
+    font-size: small;
+    color: #626368;
+}
+
+.place img {
+    width: 1.2em;
+    height: 1.1em;
+}
+
+.card-bottom .place img {
+    width:1.25em;
+}
+
+.images {
+    position: relative;
+    overflow: visible; 
+}
+
+
+.images  img {
+    width: 18.8em;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    border-radius: 0.5em;
+    position: relative;
+   
+}
+
+.mainimg{
+    transition: transform 0.5s ease;
+    position: absolute;
+    z-index: 2;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+.mainimg:hover {
+    transform: translateY(-50px);
+}
+
+.card:hover .mainimg{
+    z-index: 10;
+    position: relative;
+}
+
+.icons {
+    position: relative;
+}
+
+.icons img {
+    width: 1.25em;
+    position: absolute;
+    bottom: 10px;
+    left: 70px ;
+    z-index: -1;
+}
+
+.icons img:nth-child(1) {
+    left: 27%; 
+}
+
+.icons img:nth-child(2) {
+    left: 47%; 
+}
+
+.icons img:nth-child(3) {
+    left: 67%; 
+}
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px ;
+    
+}
+
+.list ul{
+    display: flex;
+    gap: 10px;
+    
+}
+
+
+.list ul li{
+    list-style-type: none;
+    font-weight: 500;
+    
+}
+
+
+
+
+@media only screen and (max-width: 1024px) {
+    aside { 
+        display: none;
+    }
+    main { margin-left: 0px; width: 100vw; }
+    body {
+        grid-template-columns: 1fr;
+    }
+    .circle { display: none; }
+    .header-right ul {
+        display: none;
+    }
+    .hamburger { display: block; }
+    .location {
+        flex-direction: column;
+        gap: 0;
+    }
+    .country, .map{
+        width: 95%;
+        margin: 5px 0;
+    }
+    .country-number{justify-content: flex-end;}
+    .wrapper{flex-direction: column;}
+    .card{
+        width: 100%;
+        height: 48em;
+    }
+    .images > img {
+        width: 95%;
+        transform: scale(1)
+    }
+
+}
+
+@media only screen and (max-width: 768px) {
+    .statistics {
+        grid-template-columns: 1fr; 
+    }
+    .card {
+        height: fit-content;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .card {
+        height: fit-content;
+    }
+}
+    </style>
+   
+
+
+</head>
+
+<body>
+    <aside>
+        <div class="logo"><span>CP</span>COOL PAGE</div>
+        <hr>
+        <div class="profile">
+            <img class="avatar" src="images/avatar.jpg" alt="">
+            <p>John Noe</p>
+            <img class="arrow" src="expandMore.svg" alt="">
+        </div>
+        <hr>
+        <ul>
+            <li class="orange">
+                <div class="img-left"><img src="headerDashboard.svg" alt="" title="See more">Dashboard</div>
+            </li>
+            <li>
+                <div class="img-left"><img src="pages.svg" alt="">Pages</div>
+                <div class="img-right"><img src="expandMore.svg" alt=""></div>
+            </li>
+            <li>
+                <div class="img-left"><img src="components.svg" alt="">Components</div>
+                <div class="img-right"><img src="expandMore.svg" alt=""></div>
+            </li>
+            <li>
+                <div class="img-left"><img src="form.svg" alt="">Forms</div>
+                <div class="img-right"><img src="expandMore.svg" alt=""></div>
+            </li>
+            <li>
+                <div class="img-left"><img src="table.svg" alt="">Tables</div>
+                <div class="img-right"><img src="expandMore.svg" alt=""></div>
+            </li>
+            <li>
+                <div class="img-left"><img src="map (1).svg" alt="">Maps</div>
+                <div class="img-right"><img src="expandMore.svg" alt="">
+            </li>
+            <li>
+                <div class="img-left"><img src="widget.svg" alt="">Widgets</div>
+                <div class="img-right"><img src="expandMore.svg" alt=""></div>
+            </li>
+            <li>
+                <div class="img-left"><img src="chart.svg" alt="">Charts</div>
+                <div class="img-right"><img src="expandMore.svg" alt=""></div>
+            </li>
+            <li>
+                <div class="img-left"><img src="calendar (2).svg" alt="">Calendar</div>
+                <div class="img-right"><img src="expandMore.svg" alt=""></div>
+            </li>
+        </ul>
+    </aside>
+    <main>
+        <header>
+            <div class="header-left">
+                <div class="circle">
+                    <img src="more.svg" alt="">
+                    <span class="tooltip">See more</span>
+                </div>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="header-right">
+                <ul>
+                    <li>
+                        <input type="text" placeholder="Search" id="search">
+                        <div class="circle">
+                            <img src="search.svg" alt="">
+                            <span class="tooltip">Search</span>
+                        </div>
+                    </li>
+                    <li class="tool">
+                        <img src="headerDashboard.svg" alt="">
+                        <span class="tooltip">Dashboard</span>
+                    </li>
+                    <li class="tool">
+                        <span class="notify-num">5</span>
+                        <div class="conatainer">
+                            <div class="notification-icon">
+                                <img src="notifications.svg" alt="">
+                                <span class="tooltip">Notification</span>
+                                <div class="dropdown">
+                                    <ul>
+                                        <li class="item">John Doe sent a message</li>
+                                        <li class="item">Someone viewed your profile</li>
+                                        <li class="item">John Doe sent a message</li>
+                                        <li class="item">Someone viewed your profile</li>
+                                        <li class="item">Another notification</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="profile tool">
+                        <img src="headerAvatar.svg" alt="">
+                        <span class="tooltip">Profile</span>
+                    </li>
+                </ul>
+                <div class="hamburger"><img src="menu.svg" alt=""></div>
+            </div>
+        </header>
+        <div class="allsections">
+            <section class="section1">
+                <div class="global">
+                    <img src="language.svg" alt="">
+                    <h2>Global Salesby Top Locations</h2>
+                </div>
+                <div class="location">
+                    <div class="country">
+                        <ul>
+                            <li>
+                                <span class="country-name"><img src="us.svg" alt=""></i> USA</span>
+                                <span class="country-number">2,930 </span>
+                                <span class="country-number">53.23%</span>
+
+                            </li>
+                            <hr>
+                            <li>
+                                <span class="country-name"> <img src="germany.svg" alt=""> Germany</span>
+                                <span class="country-number">1,300 </span>
+                                <span class="country-number">4.34%</span>
+                            </li>
+                            <hr>
+                            <li>
+                                <span class="country-name"><img src="italy.svg" alt=""> Italy</span>
+                                <span class="country-number">760</span>
+                                <span class="country-number"> 520.43%</span>
+                            </li>
+                            <hr>
+                            <li>
+                                <span class="country-name"><img src="kosovo.svg" alt="">Kosovo</span>
+                                <span class="country-number">690</span>
+                                <span class="country-number"> 10.35%</span>
+                            </li>
+                            <hr>
+                            <li>
+                                <span class="country-name"><img src="albania.svg" alt=""> Albania</span>
+                                <span class="country-number">600 </span>
+                                <span class="country-number">7.87%</span>
+                            </li>
+                            <hr>
+                            <li>
+                                <span class="country-name"><img src="" alt=""> Brazil </span>
+                                <span class="country-number">550 </span>
+                                <span class="country-number">5.94%</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0360977185!2d-74.30933341658171!3d40.69753995848721!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2s!4v1735860070279!5m2!1sen!2s"
+                            width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+            </section>
+            <section class="statistics">
+                <div>
+                    <div class="top">
+                        <div class="sofa"><img src="weekend.svg" alt=""></div>
+                        <div class="text">
+                            <p>Bookings</p>
+                            <h2>184</h2>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="bottom">
+                        <img src="warning.svg" alt="">
+                        <p>Get more space</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="top">
+                        <div class="stat"><img src="equalizer.svg" alt=""></div>
+                        <div class="text">
+                            <p>Websites Visit</p>
+                            <h2>75.521</h2>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="bottom">
+                        <img src="tracked.svg" alt="">
+                        <p>Tracked from Gooogle Analytics</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="top">
+                        <div class="store"><img src="storefront (4).svg" alt=""></div>
+                        <div class="text">
+                            <p>Revenue</p>
+                            <h2>$34,245</h2>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="bottom">
+                        <img src="calendar (1).svg" alt="">
+                        <p>Last 24 hours</p>
+                    </div>
+                </div>
+                <div>
+                    <div class="top">
+                        <div class="earth"><img src="public.svg" alt=""></div>
+                        <div class="text">
+                            <p>Followers</p>
+                            <h2>+245</h2>
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="bottom">
+                        <img src="update.svg" alt="">
+                        <p>Just Updated</p>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h2>Manage Listing</h2>
+                <div class="wrapper">
+                    <div class="card">
+                        <div class="images">
+                            <img class="mainimg" src="images/card-1.jpeg" alt="">
+                            <div class="icons">
+                                <img src="view.svg" alt="">
+                                <img src="edit.svg" alt="">
+                                <img src="delete.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="hotel">
+                            <h2>Cozy 5 Stars Apartment</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut repellat tempore molestiae
+                                commodi praesentium, nihil recusandae debitis accusamus voluptate.</p>
+                        </div>
+                        <hr>
+                        <div class="card-bottom">
+                            <div class="price">
+                                <p>$899/night</p>
+                            </div>
+                            <div class="place">
+                                <img src="location.svg" alt="">
+                                <p>Barcelona, Spain</p>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="card">
+                        <div class="images">
+                            <img class="mainimg" src="images/card-2.jpeg" alt="">
+                            <div class="icons">
+                                <img src="view.svg" alt="">
+                                <img src="edit.svg" alt="">
+                                <img src="delete.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="hotel">
+                            <h2>Office Studio</h2>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quas facere ullam accusantium
+                                aliquid magnam inventore eius officia, maxime laborum deleniti vero laborum .</p>
+                        </div>
+                        <hr>
+                        <div class="card-bottom">
+                            <div class="price">
+                                <p>$1.1189/night</p>
+                            </div>
+                            <div class="place">
+                                <img src="location.svg" alt="">
+                                <p>London, UK</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div class="card">
+                        <div class="images">
+                            <img class="mainimg" src="images/card-3.jpeg" alt="">
+                            <div class="icons">
+                                <img src="view.svg" alt="">
+                                
+                                <img src="edit.svg" alt="">
+                                <img src="delete.svg" alt="">
+                            </div>
+                        </div>
+                        <div class="hotel">
+                            <h2>Beautiful Castle</h2>
+                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Aut repellat tempore molestiae
+                                commodi praesentium, nihil recusandae debitis accusamus epellat.</p>
+                        </div>
+                        <hr>
+                        <div class="card-bottom">
+                            <div class="price">
+                                <p>$459/night</p>
+                            </div>
+                            <div class="place">
+                                <img src="location.svg" alt="">
+                                <p>Milan, Italy</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <hr>
+        <footer>
+            <div class="footer">
+                <div class="list">
+                    <ul>
+                        <li>HOME</li>
+                        <li>COMPANY</li>
+                        <li>PORTOFOLIO</li>
+                        <li>BLOG</li>
+                    </ul>
+                </div>
+                <div class="copyright">
+                    <p>&copy;John Doe, 2023</p>
+                </div>
+            </div>
+        </footer>
+    </main>
+</body>
+
+</html>
+

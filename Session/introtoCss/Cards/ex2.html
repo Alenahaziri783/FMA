@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Running Shoe</title>
+    <style>
+        .body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            
+        }
+
+        .product-container {
+            display: flex; 
+            background-color: pink;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 600px; 
+        }
+
+        .product-container img {
+            width: 40%; 
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-container img:hover {
+            transform: scale(1.05); 
+            background-color: palevioletred;
+            
+        }
+
+        .product-text {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-text h1 {
+            font-size: 1.5em;
+            color: black;
+            
+        }
+
+        .product-text h5 {
+            font-size: 1.25em;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .product-text p {
+            font-size: 0.95em;
+            color: #333;
+            margin-top: 15px;
+        }
+        #p{
+            color: white;
+        }
+        .flex-container{
+            border: 2px solid pink;
+            color:pink; 
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <div class="product-container">
+        
+        <img src="https://a.futureminds.io/lms/pluginfile.php/356/mod_lesson/page_contents/28/shoe.jpg" alt="Women's Running Shoe">
+        
+        <div class="product-text">
+            <p id="p">WOMEN'S Running shoe</p>
+            <h1>NIKE EPIC REACT FLYKNIT</h1>
+            <h5>$150</h5>
+            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Sunt laboriosam, fugiat iusto unde quasi 
+            adipisci nulla perferendis enim error iste ab rerum ut consequatur. Repellendus accusamus corrupti impedit recusandae molestiae?</p>
+        </div>
+    </div>
+
+</body>
+</html>

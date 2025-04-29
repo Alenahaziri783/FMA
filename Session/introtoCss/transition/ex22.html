@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marvel Card</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        .card {
+            width: 300px;
+            border: 2px solid #000;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            background-color: white;
+        }
+        .header {
+            display: flex;
+            border-bottom: 2px solid #000;
+        }
+        .header div {
+            flex: 1;
+            text-align: center;
+            font-family: Arial, sans-serif;
+            padding: 10px;
+        }
+        .price {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .date {
+            font-size: 18px;
+        }
+        .content {
+            position: relative;
+            background-color: #8B0000;
+            padding: 20px;
+            text-align: center;
+        }
+        .content img {
+            max-width: 80%;
+            height: auto;
+            padding: 20px;
+        }
+        .copyright {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="header">
+            <div class="price">40c</div>
+            <div class="date">
+                <strong>29</strong><br>JAN<br>02461
+            </div>
+        </div>
+        <div class="content">
+            <div class="copyright">&copy; 1979 Marvel Comics Group</div>
+            <img src="aaa.jpg" alt="Marvel Character">
+        </div>
+    </div>
+</body>
+</html>

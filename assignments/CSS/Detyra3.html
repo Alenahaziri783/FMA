@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Notifications</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 400px;
+        }
+        .card h2 {
+            margin: 0;
+            font-size: 1.5em;
+            font-weight: bold;
+        }
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+        .video-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .video-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .video-card video {
+            border-radius: 8px;
+            width: 300px;
+        }
+        .video-card p {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div>
+                <h2>Neil Armstrong</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, harum!</p>
+            </div>
+            <button class="close-btn">x</button>
+        </div>
+        <div class="card">
+            <div>
+                <h2>Buzz Aldrin</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, harum!</p>
+            </div>
+            <button class="close-btn">x</button>
+        </div>
+        <div class="card">
+            <div>
+                <h2>Neil Armstrong</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, harum!</p>
+            </div>
+            <button class="close-btn">x</button>
+        </div>
+        <div class="card">
+            <div>
+                <h2>Neil Armstrong</h2>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, harum!</p>
+            </div>
+            <button class="close-btn">x</button>
+        </div>
+    </div>
+</body>
+</html>
+
+         
