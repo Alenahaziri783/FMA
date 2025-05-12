@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        body {
+          font-family: Arial, sans-serif;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          flex-direction: column;
+          background-color: #f9f9f9;
+        }
+    
+        #progress-container {
+          width: 60px;
+          height: 300px;
+          background-color: #ddd;
+          border-radius: 10px;
+          overflow: hidden;
+          position: relative;
+          margin-top: 20px;
+        }
+    
+        #progress-bar {
+          position: absolute;
+          bottom: 0;
+          width: 100%;
+          height: 0%;
+          background-color: gray;
+          transition: height 0.5s, background-color 0.5s;
+          border-radius: 10px 10px 0 0;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          color: white;
+          font-weight: bold;
+          font-size: 14px;
+        }
+    
+        input[type="number"] {
+          padding: 8px;
+          width: 100px;
+          text-align: center;
+          font-size: 16px;
+        }
+    
+        button {
+          margin-top: 10px;
+          padding: 8px 16px;
+          font-size: 16px;
+          cursor: pointer;
+        }
+    
+        #tooltip {
+          margin-top: 10px;
+          font-size: 16px;
+          font-weight: bold;
+        }
+      </style>
+    </head>
+    <body>
+    
+      <h2>Enter a percentage (0–100)</h2>
+      <input type="number" id="percentageInput" min="0" max="100" value="0">
+      <button onclick="updateProgress()">Show Progress</button>
+    
+      <div id="progress-container">
+        <div id="progress-bar" title="0%">0%</div>
+      </div>
+    
+      <div id="tooltip">Progress: 0%</div>
+    
+      <script>
+        function updateProgress() {
+          const input = document.getElementById("percentageInput");
+          const bar = document.getElementById("progress-bar");
+          const tooltip = document.getElementById("tooltip");
+    
+          let percent = parseInt(input.value);
+    
+          if (isNaN(percent) || percent < 0) percent = 0;
+          if (percent > 100) percent = 100;
+    
+          bar.style.height = percent + "%";
+          bar.textContent = percent + "%";
+          bar.title = percent + "%";
+          tooltip.textContent = `Progress: ${percent}%`;
+    
+          
+          if (percent < 50) {
+            bar.style.backgroundColor = "gray";
+          } else if (percent < 80) {
+            bar.style.backgroundColor = "orange";
+          } else {
+            bar.style.backgroundColor = "green";
+          }
+        }
+      </script>
+    
+    </body>
+    </html>
+   
+    
+    
+   
+    
+  
+ 
+    
+    
+
